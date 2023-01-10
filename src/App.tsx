@@ -1,27 +1,32 @@
-import { useState } from 'react'
-import './App.css'
+import React from 'react';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
-function App() {
-  const [count, setCount] = useState(0)
+import {ThemeProvider} from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 
+import Home from './pages/Home';
+import {theme} from './themes/theme';
+import Game from './components/game';
+
+function App(): React.ReactElement {
   return (
-    <div className="App">
-      <div>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/game" element={<Game />} />
+
+          {/* Require authentication for theses pages
+              <Route element={<RequireAuth />}>
+                <Route path="/" element={<Main />} />
+                <Route path="projects" element={<Projects />} />
+                <Route path="project/:projectId" element={<Project />} />
+              </Route> */}
+        </Routes>
+      </ThemeProvider>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
