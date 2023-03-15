@@ -1,6 +1,7 @@
 import Controller from '../Controller';
 import GameInstance from '../GameInstance';
 import {movePlayer} from '../Mover';
+import DashMushroom from './DashMushroom';
 import GenericObject from './GenericObject';
 
 export default class Player extends GenericObject {
@@ -8,7 +9,7 @@ export default class Player extends GenericObject {
   canJump = false;
 
   constructor() {
-    super({width: 100, height: 200}, {x: 0, y: 0}, undefined, true);
+    super({width: 100, height: 100}, {x: 0, y: 0}, undefined, true);
 
     this.controller = GameInstance.controller;
     this.position = {
@@ -51,5 +52,12 @@ export default class Player extends GenericObject {
       this.size.height
     );
     GameInstance.context.restore();
+  }
+
+  onCollision(object: GenericObject) {
+    if (object instanceof DashMushroom) {
+      this.size.height = 200;
+      console.log('grandit');
+    }
   }
 }

@@ -1,6 +1,6 @@
-import GenericObject from './Entity/GenericObject';
-import Player from './Entity/Player';
 import GameInstance from './GameInstance';
+import GenericObject from './entity/GenericObject';
+import Player from './entity/Player';
 
 //TODO generalize movePlayer and moveObject
 
@@ -32,6 +32,7 @@ export function movePlayer(player: Player) {
         }
       }
     }
+    GameInstance.player.onCollision(object);
   }
 
   //ajout de la gravité
@@ -64,6 +65,7 @@ export function movePlayer(player: Player) {
         }
       }
     }
+    GameInstance.player.onCollision(object);
   }
 }
 export function moveObject(object: GenericObject) {

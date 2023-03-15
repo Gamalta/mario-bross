@@ -1,11 +1,9 @@
 import {useLocation} from 'react-router-dom';
 
 import Controller from './Controller';
-import GenericObject from './Entity/GenericObject';
-import Goomba from './Entity/Goomba';
-import Platform from './Entity/Platform';
-import Player from './Entity/Player';
 import {getDashMushrooms, getGoombas, getPlatforms} from './data/map';
+import GenericObject from './entity/GenericObject';
+import Player from './entity/Player';
 
 type GameInstanceType = {
   canvas: HTMLCanvasElement;

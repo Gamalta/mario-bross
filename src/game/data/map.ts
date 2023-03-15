@@ -1,7 +1,7 @@
-import DashMushroom from '../Entity/DashMushroom';
-import Goomba from '../Entity/Goomba';
-import Platform from '../Entity/Platform';
 import GameInstance from '../GameInstance';
+import DashMushroom from '../entity/DashMushroom';
+import Goomba from '../entity/Goomba';
+import Platform from '../entity/Platform';
 
 export function getGoombas() {
   return [
